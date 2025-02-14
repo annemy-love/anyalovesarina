@@ -1,0 +1,388 @@
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+}
+@keyframes floatAndWobble {
+  0% {
+    transform: translateY(0) rotate(45deg) scale(1);
+    opacity: 0;
+    filter: drop-shadow(0 0 0px rgba(255, 0, 128, 0));
+  }
+  10% {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 128, 0.5));
+  }
+  50% {
+    transform: translateY(-50vh) rotate(60deg) scale(1.2);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.7));
+  }
+  80% {
+    transform: translateY(-80vh) rotate(40deg) scale(0.9);
+    opacity: 0.5;
+    filter: drop-shadow(0 0 3px rgba(255, 0, 128, 0.4));
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg) scale(0.5);
+    opacity: 0;
+    filter: drop-shadow(0 0 0px rgba(255, 0, 128, 0));
+  }
+}
+
+@keyframes romanticGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Шрифт для кнопок */
+.marck-script-regular {
+  font-family: "Marck Script", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button, a, input, textarea, select {cursor: none !important;}
+
+body {
+ cursor: none;
+  
+  background: linear-gradient(45deg, #ffc0cb, #ffccd5, #ffe6f0, #ff9a9e);
+  background-size: 400% 400%;
+  animation: romanticGradient 20s ease infinite;
+
+  font-family: "Marck Script", serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  .custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  /* Для наглядности можно задать временно цветовой фон */
+  background: url('../img/cursor.png') no-repeat center / contain;
+}
+
+/* Анимация пульсации */
+@keyframes cursorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.cursor-pulse {
+  animation: cursorPulse 0.4s ease-out;
+}
+  
+  /* Задаём фон - например, PNG/SVG-сердечко или градиент. 
+     Можно использовать background-image: url(...); */
+  background: url('../img/cursor.png') no-repeat center / contain;
+  
+  /* Пример анимации вращения (можно закомментировать или поменять) */
+
+}
+
+
+/* Пример keyframes анимации — вращаем элемент */
+@keyframes spin {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.container {
+  position: relative; 
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 80px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+h1 {
+  font-size: 2.7em;
+  color: #ff5d8f;
+  margin-bottom: 30px;
+}
+
+button {
+
+      justify-content: center;
+   font-family: 'Parisienne', cursive;
+  font-size: 2em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Кнопка "Да" — розовая */
+#yes {
+
+  padding: 15px 50px; 
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #ff8fb1, #ff5d8f);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 5px 15px rgba(255, 0, 128, 0.3),
+              inset 0 0 10px rgba(255, 182, 193, 0.8);
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Псевдоэлемент для эффекта сердечка */
+#yes::before {
+
+  content: "❤";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale();
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+/* Эффект при наведении на кнопку "Да" */
+#yes:hover {
+  background: linear-gradient(45deg, #ff5d8f, #ff8fb1);
+  box-shadow: 0px 8px 20px rgba(255, 0, 128, 0.5),
+              inset 0 0 20px rgba(255, 182, 193, 1);
+  transform: translateY(-3px);
+}
+
+/* При наведении запускаем анимацию сердечка */
+#yes:hover::before {
+   animation: pulse 0.6s ease;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Эффект при нажатии */
+#yes:active {
+  transform: translateY(2px);
+  box-shadow: 0px 5px 10px rgba(255, 0, 128, 0.2),
+              inset 0 0 10px rgba(255, 182, 193, 0.7);
+}
+
+
+
+/* Кнопка "Нет" — серая */
+#no {
+  padding: 15px 50px;
+ 
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #e0e0e0, #a8a8a8);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.6);
+  position: absolute  ; /* сначала в потоке, JS переведёт в fixed */
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#no:hover {
+  background-color: #b3b3b3;
+}
+
+
+
+
+/* Стили для модального окна */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 100; /* Поверх остальных элементов */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 50px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+
+
+
+
+
+
+/* Контейнер для фоновых анимированных сердечек */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* чтобы клики проходили сквозь фон */
+  overflow: hidden;
+  z-index: -1; /* располагаем позади основного контента */
+}
+
+/* Убираем статичный transform из .heart, так как будем задавать его в анимации */
+.heart {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: #ff5d8f;
+  /* Применяем комбинированную анимацию */
+  animation:     floatAndRotate 5s linear infinite;
+
+}
+
+/* Псевдоэлементы для создания формы сердца */
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  background: #ff5d8f;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+.heart:before {
+  top: -10px;
+  left: 0;
+}
+.heart:after {
+  left: 10px;
+  top: 0;
+}
+
+/* Анимация, объединяющая движение вверх, уменьшение и вращение */
+@keyframes floatAndRotate {
+  0% {
+    transform: translateY(0) rotate(45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(405deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+}
+
+/* Разброс позиций, задержек и длительности анимаций для разнообразия */
+.heart:nth-child(1) {
+  left: 10%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+.heart:nth-child(2) {
+  left: 20%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.heart:nth-child(3) {
+  left: 30%;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+.heart:nth-child(4) {
+  left: 40%;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+.heart:nth-child(5) {
+  left: 50%;
+  animation-duration: 5s;
+  animation-delay: 3s;
+}
+.heart:nth-child(6) {
+  left: 60%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+.heart:nth-child(7) {
+  left: 70%;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+.heart:nth-child(8) {
+  left: 80%;
+  animation-duration: 7s;
+  animation-delay: 4s;
+}
+.heart:nth-child(9) {
+  left: 90%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+.heart:nth-child(10) {
+  left: 5%;
+  animation-duration: 7s;
+  animation-delay: 3s;
+}
+
+
+.bow {
+  position: absolute;
+  top: -40px;       /* корректируйте по необходимости, чтобы котик нависал над контейнером */
+  right: 580px;     /* можно менять: например, чтобы он висел с левого края, задайте left */
+  width: 120px;     /* размер котика */
+  z-index: 10;      /* чтобы он был поверх остальных элементов */
+  transition: transform 0.3s ease;
+}

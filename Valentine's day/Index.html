@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Marck+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+  <title>День святого Валентина</title>
+  
+</head>
+<body>
+  <div class="custom-cursor"> </div>
+  <div class="container">
+  <h1>Будешь моей валентинкой?</h1> 
+    <button id="yes">Да, конечно же, хихи</button>
+      <img src="img\pink-cute.gif" alt="мили бантик" class="bow">
+  </div>
+
+  <div class="heart-container">
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+</div>
+  </div>
+ 
+
+  </script>
+
+  <!-- Подключите библиотеку (например, через CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  document.getElementById('yes').addEventListener('click', function() {
+   
+    
+    // Запускаем анимацию конфетти
+    confetti({
+          particleCount: 2000,
+      
+      spread: 300,
+      origin: { x:0.5, y: 0.6  }
+    });
+  });
+
+  var clickSound = new Audio('sounds/pop.mp3'); // путь к звуковому файлу
+document.getElementById('yes').addEventListener('click', function() {
+  clickSound.play();
+});
+
+document.addEventListener('mousemove', (event) => {
+  const cursor = document.querySelector('.custom-cursor');
+  cursor.style.left = event.pageX + 'px';
+  cursor.style.top  = event.pageY + 'px';
+});
+
+// Получаем элемент кастомного курсора
+const customCursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousedown', () => {
+  customCursor.classList.add('cursor-pulse');
+});
+
+document.addEventListener('mouseup', () => {
+  // Можно использовать setTimeout, чтобы точно дождаться завершения анимации
+  setTimeout(() => {
+    customCursor.classList.remove('cursor-pulse');
+  }, 400);
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
